@@ -12,10 +12,6 @@ local mappings = config.mappings
 
 local cmd = vim.cmd
 
--- This is a wrapper function made to disable a plugin mapping from chadrc
--- If keys are nil, false or empty string, then the mapping will be not applied
--- Useful when one wants to use that keymap for any other purpose
-
 -- Don't copy the replaced text after pasting in visual mode
 map("v", "p", "p:let @+=@0<CR>")
 
