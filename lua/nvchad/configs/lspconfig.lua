@@ -51,6 +51,12 @@ M.defaults = function()
   dofile(vim.g.base46_cache .. "lsp")
   require("nvchad.lsp").diagnostic_config()
 
+  vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+      M.on_attach(_, args.buf)
+    end,
+  })
+
   local lua_lsp_settings = {
     Lua = {
       workspace = {
@@ -67,12 +73,11 @@ M.defaults = function()
   -- Support 0.10 temporarily
 
   if vim.version().minor == 11 then
-    vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init, on_attach = M.on_attach })
+    vim.lsp.config("*", { capabilities = M.capabilities, on_init = M.on_init })
     vim.lsp.config("lua_ls", { settings = lua_lsp_settings })
     vim.lsp.enable "lua_ls"
   else
     require("lspconfig").lua_ls.setup {
-      on_attach = M.on_attach,
       capabilities = M.capabilities,
       on_init = M.on_init,
       settings = lua_lsp_settings,
