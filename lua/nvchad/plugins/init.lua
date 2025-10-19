@@ -84,8 +84,8 @@ return {
 
   -- lsp stuff
   {
-    "williamboman/mason.nvim",
-    cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
+    "mason-org/mason.nvim",
+    cmd = { "Mason", "MasonInstall", "MasonUpdate" },
     opts = function()
       return require "nvchad.configs.mason"
     end,
@@ -137,8 +137,8 @@ return {
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
-        "hrsh7th/cmp-path",
-      },
+        "https://codeberg.org/FelipeLema/cmp-async-path.git"
+      }
     },
     opts = function()
       return require "nvchad.configs.cmp"
