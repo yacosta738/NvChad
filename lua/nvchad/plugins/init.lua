@@ -188,5 +188,6 @@ return {
     },
 
     -- see below for full list of options 👇
+  'github/copilot.vim',
   },
 }
