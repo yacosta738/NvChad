@@ -137,8 +137,8 @@ return {
         "hrsh7th/cmp-nvim-lua",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
-        "https://codeberg.org/FelipeLema/cmp-async-path.git"
-      }
+       "https://codeberg.org/FelipeLema/cmp-async-path.git",
+      },
     },
     opts = function()
       return require "nvchad.configs.cmp"
@@ -158,12 +158,9 @@ return {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPost", "BufNewFile" },
     cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
-    build = ":TSUpdate",
+    build = ":TSUpdate | TSInstallAll",
     opts = function()
       return require "nvchad.configs.treesitter"
-    end,
-    config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
     end,
   },
 }
